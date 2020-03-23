@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     var arrayData = [String]()
     var userDefault: UserDefaults?
@@ -51,7 +50,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrayData = userDefault?.object(forKey: "dressArray") as! [String]
+        arrayData = userDefault?.object(forKey: "dressArray") as? [String] ?? []
         return arrayData.count
         
     }
